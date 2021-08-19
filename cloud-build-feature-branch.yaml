@@ -1,0 +1,12 @@
+steps:
+# run unit test on flask-app before merge into main
+- id: test
+  name: "python:3.7"
+  entrypoint: 'bash'
+  args:
+    - '-c'
+    - |
+      pip3 install -r requirements.txt
+      python3 test_main.py .
+options:
+  workerPool: 'projects/agmsb-k8s/locations/us-west1/workerPools/private-pool-ghe'

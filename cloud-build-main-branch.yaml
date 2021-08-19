@@ -1,0 +1,36 @@
+steps:
+# build container image for app, push to registry, generate k8s manifests
+- id: build-image-render-manifests
+  name: "gcr.io/k8s-skaffold/skaffold:v1.23.0"
+  entrypoint: '/bin/bash'
+  args:
+    - '-c'
+    - |
+      export SKAFFOLD_TAG=${SHORT_SHA}
+      skaffold render --output resources.yaml
+  volumes:
+  - name: 'ssh'
+    path: /root/.ssh
+
+# create candidate branch in env repo
+- id: add-manifest-to-env-candidate-branch
+  name: "gcr.io/agmsb-k8s/gcloud"
+  entrypoint: 'bash'
+  args:
+    - '-c'
+    - |
+      '/builder/configure_git.sh'
+  env:
+    - 'GCLOUD_PROJECT=agmsb-k8s'
+    - 'SHORT_SHA=${SHORT_SHA}'
+  secretEnv: ['GH_KEY']
+  volumes:
+  - name: 'ssh'
+    path: /root/.ssh
+# securely store secrets used at build time
+availableSecrets:
+  secretManager:
+  - versionName: projects/agmsb-k8s/secrets/ghe-ssh/versions/latest
+    env: GH_KEY
+options:
+  workerPool: 'projects/agmsb-k8s/locations/us-west1/workerPools/private-pool-ghe'
