@@ -1,5 +1,7 @@
 bases:
 - https://github.com/agmsb/blueprints/team-seven/resources
+commonLabels:
+  env: prod
 configMapGenerator:
 - name: demo-feature
   literals:    
