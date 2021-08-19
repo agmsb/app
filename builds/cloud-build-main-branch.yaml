@@ -28,7 +28,7 @@ steps:
   volumes:
   - name: 'ssh'
     path: /root/.ssh
-# securely store secrets used at build time
+## securely store secrets used at build time
 availableSecrets:
   secretManager:
   - versionName: projects/agmsb-k8s/secrets/gh/versions/latest
