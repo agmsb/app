@@ -1,5 +1,5 @@
 steps:
-# build container image for app, push to registry, generate k8s manifests
+## build container image for app, push to registry, generate k8s manifests
 - id: build-image-and-render-k8s-manifests
   name: "gcr.io/k8s-skaffold/skaffold:v1.23.0"
   entrypoint: '/bin/bash'
