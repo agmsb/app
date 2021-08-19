@@ -8,5 +8,3 @@ steps:
     - |
       pip3 install -r requirements.txt
       python3 test_main.py .
-options:
-  workerPool: 'projects/agmsb-k8s/locations/us-west1/workerPools/private-pool-ghe'
