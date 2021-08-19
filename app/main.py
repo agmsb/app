@@ -6,7 +6,7 @@ fancy_feature = os.environ.get('ENABLE_FEATURE')
 
 @app.route('/')
 def hello():
-    return render_template('index.html', fancy_feature=fancy_feature)
+    return render_template('index.html', FEATURE=FEATURE)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)

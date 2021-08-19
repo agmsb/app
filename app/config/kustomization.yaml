@@ -1,0 +1,6 @@
+bases:
+- https://github.com/agmsb/blueprints/team-seven/resources
+configMapGenerator:
+- name: demo-feature
+  literals:    
+  - FEATURE="risky and unstable feature"

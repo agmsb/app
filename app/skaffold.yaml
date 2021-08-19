@@ -8,4 +8,10 @@ build:
 deploy:
   kustomize:
     paths: 
-      - k8s
+      - config
+portForward:
+  - resourceType: service
+    resourceName: flask-app-svc
+    namespace: default
+    port: 80
+    localPort: 8080
