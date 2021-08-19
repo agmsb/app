@@ -31,5 +31,5 @@ steps:
 # securely store secrets used at build time
 availableSecrets:
   secretManager:
-  - versionName: projects/agmsb-k8s/secrets/github_agmsb/versions/latest
+  - versionName: projects/agmsb-k8s/secrets/gh/versions/latest
     env: GH_KEY
