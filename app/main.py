@@ -2,7 +2,7 @@ from flask import Flask, request, render_template, abort
 import os
 
 app = Flask(__name__)
-fancy_feature = os.environ.get('ENABLE_FEATURE')
+FEATURE = os.environ.get('FEATURE')
 
 @app.route('/')
 def hello():

@@ -3,4 +3,4 @@ bases:
 configMapGenerator:
 - name: demo-feature
   literals:    
-  - FEATURE="risky and unstable feature"
+  - FEATURE="risky and unstable feature in dev"
