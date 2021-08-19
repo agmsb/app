@@ -1,0 +1,11 @@
+apiVersion: skaffold/v2beta13
+kind: Config
+build:
+  artifacts:
+  - image: gcr.io/agmsb-k8s/flask-app
+    buildpacks:
+      builder: "gcr.io/buildpacks/builder:v1"
+deploy:
+  kustomize:
+    paths: 
+      - k8s
