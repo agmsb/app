@@ -15,3 +15,12 @@ portForward:
     namespace: default
     port: 80
     localPort: 8080
+profiles:
+  - name: remote-build
+    build:
+      googleCloudBuild: {}
+  - name: prod
+    deploy:
+      kustomize:
+        paths:
+        - https://github.com/agmsb/blueprints/team-seven/overlays/prod

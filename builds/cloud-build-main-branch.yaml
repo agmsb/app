@@ -8,7 +8,7 @@ steps:
     - |
       export SKAFFOLD_TAG=${SHORT_SHA}
       cd app
-      skaffold render --output ../resources.yaml
+      skaffold render -p prod --output ../resources.yaml
   volumes:
   - name: 'ssh'
     path: /root/.ssh
